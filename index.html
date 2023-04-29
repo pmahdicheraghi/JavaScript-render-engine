@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script defer src="main.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>Title</title>
+</head>
+
+<body>
+  <div id="toolbar">
+    <fieldset>
+      <legend>General</legend>
+      <div class="wrapper flex">
+        <label for="objColor">Objects Color:</label>
+        <input type="color" id="objColor" value="#000000" oninput="update()" />
+      </div>
+      <div class="wrapper flex">
+        <label for="bgColor">Background Color:</label>
+        <input type="color" id="bgColor" value="#888888" oninput="draw()" />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Transform</legend>
+      <div class="wrapper flex">
+        <label for="tx">Translate:</label>
+        <div>
+          <input type="number" class="minput" id="tx" value="0" step="10" oninput="update()" />
+          <input type="number" class="minput" id="ty" value="0" step="10" oninput="update()" />
+          <input type="number" class="minput" id="tz" value="0" step="10" oninput="update()" />
+        </div>
+      </div>
+      <div class="wrapper flex">
+        <label for="sx">Scale:</label>
+        <div>
+          <input type="number" class="minput" id="sx" value="1" step="0.1" oninput="update()" />
+          <input type="number" class="minput" id="sy" value="1" step="0.1" oninput="update()" />
+          <input type="number" class="minput" id="sz" value="1" step="0.1" oninput="update()" />
+        </div>
+      </div>
+      <div class="wrapper flex">
+        <label for="angle">Rotate:</label>
+        <div>
+          <input type="range" class="minput" id="rx" value="0" min="0" max="360" oninput="update()" />
+          <input type="range" class="minput" id="ry" value="0" min="0" max="360" oninput="update()" />
+          <input type="range" class="minput" id="rz" value="0" min="0" max="360" oninput="update()" />
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Projection</legend>
+      <div class="wrapper flex">
+        <label for="projection">Type:</label>
+        <select id="projection" onchange="draw()">
+          <option value="orthographic">Orthographic</option>
+          <option value="perspective">Perspective</option>
+        </select>
+      </div>
+      <div class="wrapper flex">
+        <label for="fov">Field of View:</label>
+        <input type="range" id="fov" min="200" max="2000" value="2000" oninput="draw()" />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Objects</legend>
+      <div class="cols wrapper">
+        <div class="col2">
+          <div class="flex wrapper clickable active" onclick="setSelectedObject('square');"><label class="clickable">Square</label>
+            <input id="square" type="checkbox" value="square" checked onclick="event.stopPropagation(); draw();" />
+          </div>
+          <div class="flex wrapper clickable" onclick="setSelectedObject('rect');"><label class="clickable">Rectangle</label>
+            <input id="rect" type="checkbox" value="rect" onclick="event.stopPropagation(); draw();" />
+          </div>
+          <div class="flex wrapper clickable" onclick="setSelectedObject('circle');"><label class="clickable">Circle</label>
+            <input id="circle" type="checkbox" value="circle" onclick="event.stopPropagation(); draw();" />
+          </div>
+          <div class="flex wrapper clickable" onclick="setSelectedObject('triangle');"><label class="clickable">Triangle</label>
+            <input id="triangle" type="checkbox" value="triangle" onclick="event.stopPropagation(); draw();" />
+          </div>
+        </div>
+        <div class="col2">
+          <div class="flex wrapper clickable" onclick="setSelectedObject('qube');"><label class="clickable">Qube</label>
+            <input id="qube" type="checkbox" value="qube" onclick="event.stopPropagation(); draw();" />
+          </div>
+          <div class="flex wrapper clickable" onclick="setSelectedObject('pyramid');"><label class="clickable">Pyramid</label>
+            <input id="pyramid" type="checkbox" value="pyramid" onclick="event.stopPropagation(); draw();" />
+          </div>
+          <div class="flex wrapper clickable" onclick="setSelectedObject('cylinder');"><label class="clickable">Cylinder</label>
+            <input id="cylinder" type="checkbox" value="cylinder" onclick="event.stopPropagation(); draw();" />
+          </div>
+          <div class="flex wrapper clickable" onclick="setSelectedObject('sphere');"><label class="clickable">Sphere</label>
+            <input id="sphere" type="checkbox" value="sphere" onclick="event.stopPropagation(); draw();" />
+          </div>
+        </div>
+      </div>
+      <div class="wrapper flex">
+        <button id="reset" onclick="reset()">Reset</button>
+      </div>
+    </fieldset>
+  </div>
+  <canvas id="myCanvas" width="800" height="600"></canvas>
+</body>
+
+</html>

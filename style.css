@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+}
+
+#myCanvas {
+    margin: auto;
+    display: block;
+}
+
+#toolbar {
+    background: #FFFFFF50;
+    position: fixed;
+    top: 0;
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wrapper {
+    padding: 5px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.minput {
+    width: 50px;
+}
+
+.cols {
+    display: flex;
+    gap: 20px;
+}
+
+.col2 {
+    width: 100%;
+}
+
+.active {
+    background: #FFFFFF50;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+        height: 50%;
+    }
+    50% {
+        transform: rotate(90deg);
+        height: 100%;
+    }
+    100% {
+        transform: rotate(180deg);
+        height: 50%;
+    }
+}
